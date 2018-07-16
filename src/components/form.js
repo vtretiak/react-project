@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bootstrap';
 
 class Form extends Component {
     constructor(props) {
@@ -33,7 +34,8 @@ class Form extends Component {
                         <div className="input-group-prepend">
                             <span className="input-group-text">Search: </span>
                             <input type="text" placeholder="ex. cat" onChange={this.handleChange}/>
-                            <input type="button" onClick={this.search} value="GO"/>
+                            <span className="danger">test</span>
+                            <input className="btn" type="button" onClick={this.search} value="GO"/>
                         </div>
                     </div>
                 </form>

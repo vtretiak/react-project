@@ -29,15 +29,13 @@ module.exports = {
     stats: 'minimal',
     publicPath: publicPath,
     contentBase: path.join(__dirname, publicPath),
-    //hotmodulereplacementeplugin
     hot: true
   },
   module: {
     rules: [
-     { 
-       test: /\.css$/, use: ['style-loader', 'css-loader'], 
-       include: /flexboxgrid/
-       //Follow instructions at https://github.com/roylee0704/react-flexbox-grid
+     {
+       test: /\.(scss)$/,
+       use: ['style-loader', 'css-loader']
      },
       {
         test: /\.(png|svg|jpg|gif)$/,

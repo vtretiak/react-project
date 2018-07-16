@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Form from '../containers/search/form';
-import List  from '../containers/search/list';
-import Pagination  from './search/pagination';
+// import css from '../static/css/.css'
+import 'bootstrap';
+import Form from '../containers/form';
+import List  from '../containers/list';
+import Pagination  from './pagination';
 
 const App = () => (
   <div className="container app-container">

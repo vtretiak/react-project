@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import List from '../../components/search/list';
+import List from '../components/list';
 
 const mapStateToProps = (state) => {
     const { search: { result, isFetching } } = state;
