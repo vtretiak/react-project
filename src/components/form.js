@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap';
 
 class Form extends Component {
     constructor(props) {
