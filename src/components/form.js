@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../static/main.less';
 
 class Form extends Component {
     constructor(props) {
@@ -32,9 +33,8 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text">Search: </span>
-                            <input type="text" placeholder="ex. cat" onChange={this.handleChange}/>
-                            <span className="danger">test</span>
-                            <input className="btn" type="button" onClick={this.search} value="GO"/>
+                            <input className="search" type="text" placeholder="ex. cat" onChange={this.handleChange}/>
+                            <input className="btn-danger" type="button" onClick={this.search} value="GO"/>
                         </div>
                     </div>
                 </form>

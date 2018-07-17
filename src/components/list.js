@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Item from '../containers/item';
 import Item from './item';
 
 class List extends Component {
@@ -8,14 +9,18 @@ class List extends Component {
     	return items.map(item => <Item key={item.id} entity={item} />)
 	}
 
+	showSpinner() {
+    	return <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+	}
+
 	render() {
     	const { isFetching } = this.props;
 
         return (
-			<ul>
-				{isFetching && 'Loading'}
+			<div>
+				{isFetching && this.showSpinner()}
 				{!isFetching && this.renderItems()}
-			</ul>
+			</div>
         )
 	}
 }
