@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Item from '../containers/item';
 import Item from './item';
 
 class List extends Component {

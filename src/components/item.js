@@ -9,16 +9,18 @@ class Item extends Component {
         this.showBigImage = this.showBigImage.bind(this);
     }
     showBigImage() {
+        const { entity } = this.props;
         return (
-        ReactDOM.render(
-            <LargeImage key={this.props.entity.id} imgeUrl={this.props.entity} />,
-            document.getElementById('largeImageContainer')
-        ))
+            ReactDOM.render(
+                <LargeImage key={entity.id} imgeUrl={entity} />,
+                document.getElementById('largeImageContainer')
+            )
+        )
     }
 
     render () {
         return (
-            <img className="img-thumbnail" onClick={this.showBigImage} src={this.props.entity.previewURL} />
+            <img className="img-thumbnail img-preview" onClick={this.showBigImage} src={this.props.entity.previewURL} />
         );
     }
 
