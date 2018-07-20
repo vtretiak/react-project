@@ -9,17 +9,22 @@ class Form extends Component {
             searchText: null
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.search = this.search.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
-    handleChange(e) {
-        this.setState({
-            searchText: e.target.value
-        })
+    handleKeyPress(e) {
+        if(e.key == 'Enter'){
+            e.preventDefault();
+            this.setState({
+                searchText: e.target.value
+            });
+
+            this.handleSearch();
+        }
     }
 
-    search() {
+    handleSearch() {
         const { fetch } = this.props;
 
         fetch(this.state.searchText);
@@ -33,8 +38,8 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text">Search: </span>
-                            <input className="search" type="text" placeholder="ex. cat" onChange={this.handleChange}/>
-                            <input className="btn-danger" type="button" onClick={this.search} value="GO"/>
+                            <input className="search" type="text" placeholder="ex. cat" onKeyPress={this.handleKeyPress} />
+                            <input className="btn-danger" type="button" onClick={this.handleSearch} value="GO" />
                         </div>
                     </div>
                 </form>
