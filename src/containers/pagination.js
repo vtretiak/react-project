@@ -3,10 +3,11 @@ import Pagination from '../components/pagination';
 import { fetchAll as fetch } from '../actions/search';
 
 const mapStateToProps = (state) => {
-    const { search: { totalHits } } = state;
+    const { search: { totalHits, searchText } } = state;
 
     return {
-        totalHits: totalHits
+        totalHits: totalHits,
+        searchText: searchText
     }
 };
 

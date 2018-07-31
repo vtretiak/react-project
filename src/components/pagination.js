@@ -9,14 +9,12 @@ class Pagination extends Component {
         this.changePage = this.changePage.bind(this);
     }
     changePage (e) {
-        const searchTextEl = document.getElementsByClassName('search');
         const { fetch } = this.props;
-
-        fetch(searchTextEl[0].value, e.target.textContent);
+        const { searchText } = this.props;
+        fetch(searchText, e.target.textContent);
     }
     showPages () {
         const { totalHits } = this.props;
-        // by default it shows 20 images per page
         if ( totalHits <= IMG_ON_PAGE){
             return null
         }
