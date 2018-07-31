@@ -8,11 +8,12 @@ export const receive = (result) => ({ type: ITEMS_RECEIVE, payload: { result }})
 
 export const fetchAll = (key, pageNumber=1) => async function (dispatch) {
     dispatch(request());
-
-    const response = await window.fetch(`${API_URL}&q=${key}&page=${pageNumber}&per_page=${IMG_ON_PAGE}`);
-    const result = await response.json();
-
-    dispatch(receive(result));
-
+    try {
+        const response = await window.fetch(`${API_URL}&q=${key}&page=${pageNumber}&per_page=${IMG_ON_PAGE}`);
+        const result = await response.json();
+        dispatch(receive(result));
+    } catch (err) {
+        dispatch(receive({"errorMsg": "There were some problems with getting data from server"}));
+    }
     dispatch(requestEnd());
 };

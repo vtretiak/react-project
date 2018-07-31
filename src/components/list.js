@@ -1,27 +1,31 @@
-import React, { Component } from 'react';
-import Item from './item';
+import React, { Component } from "react";
+import Item from "./item";
 
 class List extends Component {
     renderItems() {
-    	const { items } = this.props;
+        const { items } = this.props;
+        const { errorMsg } = this.props;
 
-    	return items.map(item => <Item key={item.id} entity={item} />)
-	}
+        if (errorMsg) {
+            return errorMsg;
+        }
+        return items.map(item => <Item key={item.id} entity={item} />)
+    }
 
-	showSpinner() {
-    	return <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-	}
+    showSpinner() {
+        return <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+    }
 
-	render() {
-    	const { isFetching } = this.props;
+    render() {
+        const { isFetching } = this.props;
 
         return (
-			<div>
-				{isFetching && this.showSpinner()}
-				{!isFetching && this.renderItems()}
-			</div>
+            <div>
+                {isFetching && this.showSpinner()}
+                {!isFetching && this.renderItems()}
+            </div>
         )
-	}
+    }
 }
 
 List.defaultProps = {

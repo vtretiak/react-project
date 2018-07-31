@@ -9,9 +9,9 @@ export default function (state = initialState, action) {
     switch (action.type) {
 
         case ITEMS_RECEIVE: {
-            const { result: { hits, totalHits } } = action.payload;
+            const { result: { hits, totalHits, errorMsg } } = action.payload;
 
-            return Object.assign({}, state, { result: hits, totalHits: totalHits });
+            return Object.assign({}, state, { result: hits, totalHits: totalHits, errorMsg: errorMsg });
         }
 
         case ITEMS_REQUEST: {
